@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -30,7 +31,11 @@ public class StudentController {
         return service.findAll();
     }
 
-
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<Student>findById(@PathVariable Long id){
+        return service.findById(id);
+    }
 
 
 

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/professor")
@@ -31,5 +32,14 @@ public class TeacherController {
     public List<Teacher> findAll(){
         return service.findAll();
     }
+
+
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<Teacher>findById(@PathVariable Long id){
+        return  service.findById(id);
+    }
+
 
 }
