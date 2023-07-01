@@ -33,6 +33,8 @@ public class StudentService {
     }
 
 
-
+    public List<Student> findStudentByNameAndEmail(String name, String email){
+        return repository.findStudentByNameAndEmail(name, email);
+    }
 
 }

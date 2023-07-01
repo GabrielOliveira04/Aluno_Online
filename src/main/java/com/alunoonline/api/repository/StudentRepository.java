@@ -12,12 +12,14 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
         public List<Student> findStudentByName(String name);
+        @Query("Select u from Student u where u.name=:name and u.email=:email")
+        public List<Student> findStudentByNameAndEmail(@Param("name") String name,@Param("email") String email);
 
-        public List<Student> findStudentByNameAndEmail(String name,String email);
+        public List<Student>findAllByOrderByNameAsc();
 
-        public List<Student>findAllByStudentOrderByNameAsc();
         @Query("Select u from Student u where u.name=:name")
         public List<Student>  searchByName(@Param("name") String name);
+
 
 
 }

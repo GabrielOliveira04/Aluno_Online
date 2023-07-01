@@ -41,8 +41,20 @@ public class TeacherController {
     public Optional<Teacher>findById(@PathVariable Long id){
         return  service.findById(id);
     }
-    @GetMapping("/{nome}")
-    public ResponseEntity<List<Teacher>>searchByName(@PathParam("name") String name){
+    @GetMapping("nome/{nome}")
+    public ResponseEntity<List<Teacher>>searchByName(@PathVariable("nome") String name){
         return ResponseEntity.ok(service.seachByName(name));
     }
+
+
+
+   @GetMapping("nome,email/{nome}/{email}")
+   public ResponseEntity<List<Teacher>>findTeacherByNameAndEmail(@PathVariable("nome") String name,@PathVariable("email")String email){
+        return ResponseEntity.ok(service.findTeacherByNameAndEmail(name, email));
+   }
+
+
+
+
+
 }

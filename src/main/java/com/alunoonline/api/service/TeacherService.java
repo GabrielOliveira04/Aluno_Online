@@ -35,4 +35,14 @@ public class TeacherService {
     public List<Teacher>seachByName(String name){
         return repository.searchByName(name);
     }
+
+
+    public List<Teacher>findTeacherByNameAndEmail(String name, String email){
+        return repository.findTeacherByNameAndEmail(name, email);
+    }
+
+
+
+
+
 }

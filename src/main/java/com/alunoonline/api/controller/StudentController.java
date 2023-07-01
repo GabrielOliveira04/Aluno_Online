@@ -38,11 +38,13 @@ public class StudentController {
         return service.findById(id);
     }
 
-    @GetMapping("/{nome}")
-    public ResponseEntity<List<Student>>searchByName(@PathParam("name") String name){
+    @GetMapping("nome/{nome}")
+    public ResponseEntity<List<Student>>searchByName(@PathVariable("nome") String name){
         return ResponseEntity.ok(service.searchByName(name));
     }
 
-
-
+    @GetMapping("nome,email/{nome}/{email}")
+    public ResponseEntity<List<Student>>findStudentByNameAndEmail(@PathVariable("nome")String name,@PathVariable("email") String email){
+        return ResponseEntity.ok(service.findStudentByNameAndEmail(name,email));
+    }
 }
