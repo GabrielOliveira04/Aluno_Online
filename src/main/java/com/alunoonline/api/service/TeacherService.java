@@ -30,4 +30,9 @@ public class TeacherService {
     public Optional<Teacher>findById(Long id){
         return repository.findById(id);
     }
+
+
+    public List<Teacher>seachByName(String name){
+        return repository.searchByName(name);
+    }
 }

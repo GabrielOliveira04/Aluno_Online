@@ -3,6 +3,7 @@ package com.alunoonline.api.controller;
 
 import com.alunoonline.api.model.Teacher;
 import com.alunoonline.api.service.TeacherService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +41,8 @@ public class TeacherController {
     public Optional<Teacher>findById(@PathVariable Long id){
         return  service.findById(id);
     }
-
-
+    @GetMapping("/{nome}")
+    public ResponseEntity<List<Teacher>>searchByName(@PathParam("name") String name){
+        return ResponseEntity.ok(service.seachByName(name));
+    }
 }

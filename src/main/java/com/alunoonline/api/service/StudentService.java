@@ -28,7 +28,9 @@ public class StudentService {
         return repository.findById(id);
     }
 
-
+    public List<Student>searchByName(String name){
+        return repository.searchByName(name);
+    }
 
 
 

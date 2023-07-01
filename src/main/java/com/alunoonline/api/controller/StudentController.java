@@ -2,6 +2,7 @@ package com.alunoonline.api.controller;
 
 import com.alunoonline.api.model.Student;
 import com.alunoonline.api.service.StudentService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +38,10 @@ public class StudentController {
         return service.findById(id);
     }
 
-
-
+    @GetMapping("/{nome}")
+    public ResponseEntity<List<Student>>searchByName(@PathParam("name") String name){
+        return ResponseEntity.ok(service.searchByName(name));
+    }
 
 
 
